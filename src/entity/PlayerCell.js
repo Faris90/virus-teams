@@ -25,7 +25,7 @@ PlayerCell.prototype.visibleCheck = function(box,centerPos) {
 }
 
 PlayerCell.prototype.calcMergeTime = function(base) {
-    this.recombineTicks = 5;// Int (30 sec + (.02 * mass))
+    this.recombineTicks = 1;// Int (30 sec + (.02 * mass))
 }
 
 // Override
