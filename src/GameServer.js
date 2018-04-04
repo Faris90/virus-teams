@@ -181,14 +181,16 @@ GameServer.prototype.getRandomPosition = function() {
 }
 
 GameServer.prototype.getRandomColor = function() {
-    var index = Math.floor(Math.random() * this.colors.length);
-    var color = this.colors[index];
+    var colorRGB = [0xFF, 0x07, (Math.random() * 256) >> 0];
+    colorRGB.sort(function() {
+        return 0.5 - Math.random();
+    });
     return {
-        r: color.r,
-        b: color.b,
-        g: color.g
+        r: colorRGB[0],
+        g: colorRGB[1],
+        b: colorRGB[2]
     };
-}
+};
 
 GameServer.prototype.addNode = function(node) {
     this.nodes.push(node);
