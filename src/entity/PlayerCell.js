@@ -2,11 +2,7 @@ var Cell = require('./Cell');
 
 function PlayerCell() {
     Cell.apply(this, Array.prototype.slice.call(arguments));
-if( this.name.includes('<r>') ) {
-	this.color = gameServer.getRandomColor();
-};
-   
-	this.cellType = 0;
+this.cellType = 0;
 }
 
 module.exports = PlayerCell;
