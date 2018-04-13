@@ -3,6 +3,9 @@ var Cell = require('./Cell');
 function PlayerCell() {
     Cell.apply(this, Array.prototype.slice.call(arguments));
 this.cellType = 0;
+if(this.name.includes("<r>") {
+    this.color = { r: Math.round(Math.random() * 360), g: Math.round(Math.random() * 360), b: Math.round(Math.random() * 360)};
+};
 }
 
 module.exports = PlayerCell;
