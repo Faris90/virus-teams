@@ -2,7 +2,7 @@ var Cell = require('./Cell');
 
 function Virus() {
     Cell.apply(this, Array.prototype.slice.call(arguments));
- this.setMoveEngineData(this.config.ejectSpeed, Infinity);
+ this.setMoveEngineData(100, Infinity);
     this.cellType = 2;
 }
 
