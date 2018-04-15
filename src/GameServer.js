@@ -507,7 +507,7 @@ GameServer.prototype.splitCells = function(client) {
         // Create cell
         split = new Entity.PlayerCell(this.getNextNodeId(), client, startPos, newMass);
         split.setAngle(angle);
-        split.setMoveEngineData(40 + (cell.getSpeed() * 4), 20);
+        split.setMoveEngineData(500 + (cell.getSpeed() * 4), 20);
         split.calcMergeTime(this.config.playerRecombineTime);
     	
         // Add to moving cells list
