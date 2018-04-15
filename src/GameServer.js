@@ -502,7 +502,7 @@ GameServer.prototype.splitCells = function(client) {
             y: cell.position.y + ( (size + this.config.ejectMass) * Math.cos(angle) )
         };
         // Calculate mass of splitting cell
-        var newMass = cell.mass / 2 + 100;
+        var newMass = cell.mass / 2;
         cell.mass = newMass;
         // Create cell
         split = new Entity.PlayerCell(this.getNextNodeId(), client, startPos, newMass);
