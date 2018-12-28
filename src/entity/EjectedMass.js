@@ -30,8 +30,7 @@ Virus.prototype.feed = function(feeder,gameServer) {
 
 Virus.prototype.onConsume = function(consumer,gameServer) {
     var client = consumer.owner;
-  if(client.color != this.color) {
-	var maxSplits = Math.floor(consumer.mass/16) - 1; // Maximum amount of splits
+    var maxSplits = Math.floor(consumer.mass/16) - 1; // Maximum amount of splits
     var numSplits = gameServer.config.playerMaxCells - client.cells.length; // Get number of splits
     numSplits = Math.min(numSplits,maxSplits);
     var splitMass = Math.min(consumer.mass/(numSplits + 1), 32); // Maximum size of new splits
@@ -57,7 +56,8 @@ Virus.prototype.onConsume = function(consumer,gameServer) {
     }
     
     // Splitting
-    var angle = 0; // Starting angle
+  if(client.color !== this.color) {
+	var angle = 0; // Starting angle
     for (var k = 0; k < numSplits; k++) {
         angle += 6/numSplits; // Get directions of splitting cells
         gameServer.newCellVirused(client, consumer, angle, splitMass,150);
@@ -69,8 +69,7 @@ Virus.prototype.onConsume = function(consumer,gameServer) {
         splitMass = consumer.mass / 4;
         gameServer.newCellVirused(client, consumer, angle, splitMass,18);
         consumer.mass -= splitMass;
-    } else {
-	     consumer.addMass(this.mass);
+    }
     }
 }
 
